@@ -148,9 +148,13 @@ export default function Home() {
                                 <span className="text-green-600 font-semibold">
                                   Complied with Format ✅
                                 </span>
-                              ) : (
+                              ) : entry["Remarks"] === "Resubmit" ? ( // covers empty string, null, undefined, or missing
                                 <span className="text-red-600 font-semibold">
                                   Resubmit ❌
+                                </span>
+                              ) : (
+                                <span className="text-yellow-600 font-semibold">
+                                  In Progress ⏳
                                 </span>
                               )}
                             </td>
