@@ -174,7 +174,8 @@ export default function Home() {
                     icon={faNoteSticky}
                     className="text-white w-4 h-4"
                   />
-                  Kindly pickup your manuscript at the office. Many thanks.
+                  If status is Resubmit or Complied with Format. Kindly pickup
+                  your manuscript at the office. Many thanks.
                 </p>
               </div>
             )}
