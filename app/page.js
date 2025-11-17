@@ -17,7 +17,7 @@ export default function Home() {
     try {
       // Replace with your actual Google Sheet ID and sheet name
       const sheetId = "1tgYXbj5NY_GPK76CbHPp4RT6H0y-p1s1qthFI0A0KGI";
-      const sheetName = "Proposal";
+      const sheetName = "Manuscript";
       const url = `https://opensheet.elk.sh/${sheetId}/${sheetName}`;
 
       const res = await fetch(url);
@@ -53,7 +53,7 @@ export default function Home() {
         className="w-full bg-blue-600 text-white flex justify-between items-center px-6 py-3 shadow"
         style={{ backgroundColor: "#8d1635" }} // custom color
       >
-        <h1 className="text-xl font-bold">Proposal Status Tracker</h1>
+        <h1 className="text-xl font-bold">Manuscript Status Tracker</h1>
         <img
           src="/logo.png" // put your logo inside public/logo.png
           alt="Logo"
@@ -126,6 +126,9 @@ export default function Home() {
                           Term and Semester
                         </th>
                         <th className="border border-gray-300 px-4 py-2 text-left">
+                          Category
+                        </th>
+                        <th className="border border-gray-300 px-4 py-2 text-left">
                           Status
                         </th>
                       </tr>
@@ -142,6 +145,9 @@ export default function Home() {
                             </td>
                             <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">
                               {entry["Term and Semester"]}
+                            </td>
+                            <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">
+                              {entry["Category"]}
                             </td>
                             <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">
                               {entry["Remarks"] === "Complied with Format" ? (
@@ -168,7 +174,7 @@ export default function Home() {
                     icon={faNoteSticky}
                     className="text-white w-4 h-4"
                   />
-                  Kindly pickup your proposal at the office. Many thanks.
+                  Kindly pickup your manuscript at the office. Many thanks.
                 </p>
               </div>
             )}
