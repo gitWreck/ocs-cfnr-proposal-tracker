@@ -42,6 +42,41 @@ export default function Home() {
     }
   };
 
+  function FixedReadableDate({ dateString }) {
+    // 1. Manually parse and reformat the string into ISO 8601 (YYYY-MM-DD HH:mm:ss)
+    const parts = dateString.split(/[\/\s:]+/); // Split by /, space, or :
+
+    const [month, day, year, hour, minute, second] = parts;
+
+    // Create a new string in YYYY-MM-DDTHH:mm:ss format
+    // This format is universally accepted by new Date()
+    const isoString = `${year}-${month}-${day}T${hour}:${minute}:${second}`;
+
+    // 2. Now, new Date() will reliably parse the standardized string
+    const date = new Date(isoString);
+
+    // 3. Check if the parsing was successful before formatting
+    if (isNaN(date.getTime())) {
+      return <span>Error: Invalid Date Input</span>;
+    }
+
+    // 4. Proceed with formatting (using the robust Intl API)
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    };
+
+    const formattedDate = new Intl.DateTimeFormat(undefined, options).format(
+      date
+    );
+
+    return <time dateTime={dateString}>{formattedDate}</time>;
+  }
+
   return (
     <main
       // className="min-h-screen bg-white"
@@ -120,6 +155,9 @@ export default function Home() {
                     <thead className="bg-gray-100">
                       <tr>
                         <th className="border border-gray-300 px-4 py-2 text-left">
+                          Date
+                        </th>
+                        <th className="border border-gray-300 px-4 py-2 text-left">
                           Student Number
                         </th>
                         <th className="border border-gray-300 px-4 py-2 text-left">
@@ -140,6 +178,10 @@ export default function Home() {
                         )
                         .map((entry, idx) => (
                           <tr key={idx} className="hover:bg-gray-50">
+                            <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">
+                              {/* Correct: Render the component as a JSX element */}
+                              <FixedReadableDate dateString={entry["Date"]} />
+                            </td>
                             <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">
                               {entry["Student Number"]}
                             </td>
