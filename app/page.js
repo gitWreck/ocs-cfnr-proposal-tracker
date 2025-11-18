@@ -200,6 +200,10 @@ export default function Home() {
                                 <span className="text-red-600 font-semibold">
                                   Resubmit ❌
                                 </span>
+                              ) : entry["Remarks"] === "Signed by the Dean" ? (
+                                <span className="text-green-600 font-semibold">
+                                  Signed by the Dean ✅
+                                </span>
                               ) : (
                                 <span className="text-yellow-600 font-semibold">
                                   In Progress ⏳
