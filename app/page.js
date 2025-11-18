@@ -107,10 +107,8 @@ export default function Home() {
           (Student Number + first two letters of your first name). <br />
           Then click <strong>Check Status</strong> to view your proposal status.{" "}
           <br />
-          In case where you have resubmissions, the <strong>
-            top value
-          </strong>{" "}
-          is the latest status.
+          For Proposals, in case where you have resubmissions, the{" "}
+          <strong>top value</strong> is the latest status.
         </p>
       </div>
       {/* 🔹 CONTENT */}
@@ -221,7 +219,7 @@ export default function Home() {
                     className="text-white w-4 h-4"
                   />
                   If status is Resubmit or Complied with Format. Kindly pickup
-                  your manuscript at the office. Many thanks.
+                  your manuscript at the office.
                 </p>
               </div>
             )}
